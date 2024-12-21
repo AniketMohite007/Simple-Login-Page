@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Login </title>
+    <title>Login</title>
 </head>
+
 <body>
 
     <div class="login">
-        <img src="bg.jpg" alt="">
+        <img src="bg.jpg" alt="User profile picture">
         <h3>Welcome Back!</h3>
         <h2>Aniket Mohite</h2>
-        <form class="login-form">
-            <input type="password" placeholder="Enter your password">
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <!-- Password field with toggle visibility -->
+            <!-- Password Field with Toggle Visibility -->
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter your password" aria-label="Password" required>
+                <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+            </div>
+
+
+            <!-- Login Button -->
             <button type="submit">LOGIN</button>
-            <a href="#">Forget your password?</a>
+
+            <!-- Forgot Password Link -->
+            <a href="#">Forgot your password?</a>
         </form>
     </div>
-    
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('.toggle-password');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = '🙈'; // Change icon to "hide"
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = '👁'; // Change icon to "show"
+            }
+        }
+
+    </script>
+
 </body>
+
 </html>
